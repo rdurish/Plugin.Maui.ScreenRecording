@@ -5,22 +5,17 @@ namespace Plugin.Maui.ScreenRecording;
 // TODO Not working, throwing exception???
 partial class ScreenRecordingImplementation : IScreenRecording
 {
-	public float Brightness 
-	{
-		get
-		{
-			if (!BrightnessOverride.GetDefaultForSystem().IsSupported)
-			{
-				return 0;
-			}
+	public bool IsRecording => throw new NotImplementedException();
 
-			return (float)BrightnessOverride.GetDefaultForSystem().BrightnessLevel;
-		}
-		
-		set
-		{
-			BrightnessOverride.GetDefaultForSystem().StartOverride();
-			BrightnessOverride.GetDefaultForSystem().SetBrightnessLevel(value, DisplayBrightnessOverrideOptions.UseDimmedPolicyWhenBatteryIsLow);
-		}
+	public bool IsSupported => throw new NotImplementedException();
+
+	public Task StartRecording(bool enableMicrophone)
+	{
+		throw new NotImplementedException();
+	}
+
+	public Task<ScreenRecordingFile?> StopRecording(ScreenRecordingOptions? options = null)
+	{
+		throw new NotImplementedException();
 	}
 }
